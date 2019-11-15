@@ -15,20 +15,3 @@ async function insertionSort() {
         lines[j + 1] = pivot;
     }
 }
-/*
-async function insertionSort() {
-    let index = 0, temp;
-    while(index < lines.length) {
-        if(index == 0)
-            index++;
-        if(lines[index] >= lines[index - 1]){
-            states[index] = 0;
-            temp = index++;
-        } else {
-            states[index] = 1;
-            await swap(lines, index, index - 1);
-            states[index] = -1;
-            index--;
-        }
-    }
-}*/
