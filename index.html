@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visual Sorting</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Dosis:700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="header">
+    <a class="logo">Visual Sorting</a>
+    <div class="header-right">
+      <a>
+        <div class="value">32</div>
+        <input type="range" min="32" max="512" step="1" value="32">
+      </a>
+      <a class="clickable" onclick="bubblesort()">Bubble Sort</a>
+      <a class="clickable" onclick="bubblesort()">Quick Sort</a>
+      <a class="clickable" onclick="bubblesort()">Selection Sort</a>
+      <a class="clickable" onclick="bubblesort()">Something Sort</a>
+    </div>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <script src="canvas.js"></script>
+  <script src="slider.js"></script>
+  <script src="algorithms/bubblesort.js"></script>
+</body>
+
+</html>
