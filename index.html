@@ -11,25 +11,28 @@
 </head>
 
 <body>
-
   <div class="header">
-    <a class="logo">Visual Sorting</a>
+    <a class="logo" href="https://starbuckr.github.io/VisualSorting/">Visual Sorting</a>
     <div class="header-right">
+      <a style="color:#FF4136; font-size: 15px">Pivot Color</a>
+      <a style="color:#0074D9; font-size: 15px">Partition Color</a>
       <a>
         <div class="value">32</div>
-        <input type="range" min="32" max="256" step="1" value="32">
+        <input type="range" min="32" max="512" step="1" value="32">
       </a>
-      <a class="clickable" onclick="bubblesort()">Bubble Sort</a>
-      <a class="clickable" onclick="bubblesort()">Quick Sort</a>
-      <a class="clickable" onclick="bubblesort()">Selection Sort</a>
-      <a class="clickable" onclick="bubblesort()">Something Sort</a>
+      <a class="clickable" onclick="bubbleSort()">Bubble Sort</a>
+      <a class="clickable" onclick="quickSort()">Quick Sort</a>
+      <a class="clickable" onclick="heapSort()">Heap Sort</a>
+      <a class="clickable" onclick="selectionSort()">Selection Sort</a>
     </div>
   </div>
-
-  <script src="p5.min.js"></script>
-  <script src="canvas.js"></script>
-  <script src="slider.js"></script>
-  <script src="algorithms/bubblesort.js"></script>
+  
+  <script src="assets/p5.min.js"></script>
+  <script src="assets/canvas.js"></script>
+  <script src="assets/slider.js"></script>
+  <script src="algorithms/bubbleSort.js"></script>
+  <script src="algorithms/quickSort.js"></script>
+  <script src="algorithms/heapSort.js"></script>
+  <script src="algorithms/selectionSort.js"></script>
 </body>
-
 </html>

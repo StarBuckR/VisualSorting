@@ -1,5 +1,5 @@
 let lines = [];
-let states = [];
+let states = []; // for better visualization
 let w;// weight for resizing rectangles
 
 function setup() {
@@ -13,9 +13,11 @@ function draw() {
 
   for (let i = 0; i < lines.length; i++) {
       if(states[i] == 0){
-          fill(255, 0, 0);
+          fill('#FF4136');
+      } else if(states[i] == 1){
+          fill('#0074D9');
       } else {
-          fill(255);
+          fill("#eee");
       }
       rect(i * w, height - lines[i], w, height)
   }
@@ -29,12 +31,13 @@ function reCreate(lineSize) {
   for (let i = 0; i < lineSize; i++) {
     lines[i] = random(height);
     states[i] = -1;
-    fill(255);
+    fill("#eee");
     rect(i * w, height - lines[i], w, height)
   }
 }
 
 async function swap(arr, a, b) {
+  await sleep(50);
   let temp = arr[a];
   arr[a] = arr[b];
   arr[b] = temp;
