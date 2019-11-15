@@ -1,44 +1,45 @@
-let canvas = document.getElementById('canvas');
-var lines = [];
+let lines = [];
+let states = [];
+let w;// weight for resizing rectangles
 
-function resizeCanvas() {
-  canvas.setAttribute("width", window.innerWidth);
-  
-  var height = document.getElementsByClassName("header")[0].clientHeight;
-  canvas.setAttribute("height", window.innerHeight - height);
-};
-
-function createValues() {
-  var context = canvas.getContext("2d");
-  context.translate(0, canvas.height);
-  context.scale(1, -1);
-
-  reCreate();
+function setup() {
+  createCanvas(windowWidth, windowHeight - document.getElementsByClassName("header")[0].clientHeight);
+  reCreate(32);
 }
 
-function reCreate() {
-  var context = canvas.getContext("2d");
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  context.beginPath();
+
+function draw() {
+  background(150);
+
+  for (let i = 0; i < lines.length; i++) {
+      if(states[i] == 0){
+          fill(255, 0, 0);
+      } else {
+          fill(255);
+      }
+      rect(i * w, height - lines[i], w, height)
+  }
+}
+
+function reCreate(lineSize) {
   lines = [];
-  var size = document.getElementsByClassName("value")[0].innerHTML;
-  var xScale = document.body.clientWidth / (514);
-  var x = 5;
-  for(var i = 0; i < size; i++){
-    var y = parseInt(Math.random() * 700 + 99);
-    context.moveTo(x, 100);
-    context.lineTo(x, y);
-    lines.push({
-      x: x,
-      y: y
-    });
-    x += xScale;
-  } 
-	context.lineWidth = 2;
-	// set line color
-	context.strokeStyle = "#eee";
-	context.stroke();
+  background(150);
+  lines = new Array(lineSize);
+  w = windowWidth / lineSize
+  for (let i = 0; i < lineSize; i++) {
+    lines[i] = random(height);
+    states[i] = -1;
+    fill(255);
+    rect(i * w, height - lines[i], w, height)
+  }
 }
 
-resizeCanvas();
-createValues();
+async function swap(arr, a, b) {
+  let temp = arr[a];
+  arr[a] = arr[b];
+  arr[b] = temp;
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
