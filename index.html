@@ -5,20 +5,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Visual Sorting</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Dosis:700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
+    <header class="header">
+        <a class="logo" href="https://starbuckr.github.io/VisualSorting/">Visual Sorting</a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+          <li>
+              <a class="clickable" onclick="resetEverything()">Reset Everything</a>
+          </li>
+          <li>
+            <a>
+              <div style="color:#FF4136; font-size: 15px">Selection Color</div>
+              <div style="color:#0074D9; font-size: 15px">Partition Color</div>
+            </a>
+          </li>
+          <li>
+            <a>
+              <div class="delay">50</div>
+              <input type="range" min="1" max="1000" step="10" value="50">
+              <div style="text-align: center;">Delay</div>
+            </a>
+          </li>
+          <li>
+            <a>
+              <div class="value">32</div>
+              <input type="range" min="32" max="512" step="1" value="32">
+              <div style="text-align: center;">Size</div>
+            </a>
+          </li>
+          <li><a class="clickable" onclick="bubbleSort()">Bubble Sort</a></li>
+          <li><a class="clickable" onclick="quickSort()">Quick Sort</a></li>
+          <li><a class="clickable" onclick="heapSort()">Heap Sort</a></li>
+          <li><a class="clickable" onclick="selectionSort()">Selection Sort</a></li>
+          <li><a class="clickable" onclick="gnomeSort()">Gnome Sort</a></li>
+          <li><a class="clickable" onclick="insertionSort()">Insertion Sort</a></li>
+        </ul>
+      </header><!--
   <div class="header">
     <a class="logo" href="https://starbuckr.github.io/VisualSorting/">Visual Sorting</a>
     <div class="header-right">
-      <a style="color:#FF4136; font-size: 15px">Pivot Color</a>
-      <a style="color:#0074D9; font-size: 15px">Partition Color</a>
+      <a class="clickable" onclick="resetEverything()">Reset Everything</a>
+      <a>
+        <div style="color:#FF4136; font-size: 15px">Selection Color</div>
+        <div style="color:#0074D9; font-size: 15px">Partition Color</div>
+      </a>
+      <a>
+        <div class="delay">50</div>
+        <input type="range" min="1" max="1000" step="10" value="50">
+        <div>Delay</div>
+      </a>
       <a>
         <div class="value">32</div>
         <input type="range" min="32" max="512" step="1" value="32">
+        <div>Size</div>
       </a>
       <a class="clickable" onclick="bubbleSort()">Bubble Sort</a>
       <a class="clickable" onclick="quickSort()">Quick Sort</a>
@@ -27,7 +71,7 @@
       <a class="clickable" onclick="gnomeSort()">Gnome Sort</a>
       <a class="clickable" onclick="insertionSort()">Insertion Sort</a>
     </div>
-  </div>
+  </div>-->
   
   <script src="assets/p5.min.js"></script>
   <script src="assets/canvas.js"></script>

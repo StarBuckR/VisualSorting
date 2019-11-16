@@ -11,7 +11,6 @@ async function insertionSort() {
             states[j + 1] = -1;
             j--;
         }
-        //await swap(lines, j + 1, i);
         lines[j + 1] = pivot;
     }
 }
