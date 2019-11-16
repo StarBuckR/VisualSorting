@@ -118,7 +118,7 @@ a {
 
 /* 48em = 768px */
 
-@media (min-width: 120em) {
+@media (min-width: 1600px) {
   .header li {
     float: left;
   }
@@ -216,4 +216,9 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-webkit-slider-thumb:hover {
   background-color: #ddd;
   border: 2px solid #e74c3c;
+}
+
+.counter {
+  position: absolute;
+  color: #333;
 }

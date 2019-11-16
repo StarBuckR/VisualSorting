@@ -1,6 +1,12 @@
 async function gnomeSort() {
+    comparison = 0;
+    swapCounter = 0;
+    time0 = Date.now();
+    secondBool = true;
+    
     let i = 1;
     while(i < lines.length) {
+        comparison++;
         if(lines[i] >= lines[i - 1])
             i++;
         else {
@@ -14,4 +20,5 @@ async function gnomeSort() {
                 i++;
         }
     }
+    secondBool = false;
 }
