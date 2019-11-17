@@ -1,62 +1,232 @@
-* {box-sizing: border-box;}
-
-body { 
+body {
   margin: 0;
-  font-family: "Dosis", Arial, Helvetica, sans-serif;
+  font-family: 'Dosis', Helvetica, sans-serif;
+  background-color: #f4f4f4;
+  overflow: hidden;
 }
+
+a {
+  color: #ddd;
+}
+
+/* header */
 
 .header {
+  background-color: #101010;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
   overflow: hidden;
   background-color: #101010;
-  padding: 5px 10px;
+  /*margin-top: 20px;*/
 }
 
-.header a {
-  float: left;
-  color: #ddd;
-  text-align: center;
-  padding: 20px;
+.header li a {
+  display: block;
+  padding: 10px 10px;
+  border-right: 1px solid #101010;
   text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;
-  border-radius: 4px;
 }
 
-.header a.logo {
+.header li:hover {
+  background-color: #333;
+}
+
+.menu li:nth-child(6):hover {
+  background-color: #101010;
+}
+
+.header .logo {
+  display: block;
+  float: left;
   font-size: 30px;
-  font-weight: bold;
+  padding: 10px 20px;
+  text-decoration: none;
 }
 
-.header-right {
+/* menu */
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+}
+
+.accordion {
+  background-color: #101010;
+  color: #ddd;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: right;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  display: inline-block;
   float: right;
-  margin-top: 10px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #333;
+}
+
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: 101010;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #333;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 100%;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+@media (min-width: 800px) {
+  .header li {
+    float: left;
+  }
+  .header li a {
+    padding: 20px 30px;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
 }
 
 .clickable {
     cursor: pointer;
 }
 
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .header-right {
-    float: none;
-  }
+.delay {
+  margin-left: 0px;
+  text-align: center;
+  color: #e74c3c;
+  font-family: 'Dosis';
+  font-size: 30px;
+  margin-top: -22px;
+  margin-bottom: 17px;
+  letter-spacing: -.07em;
+  font-weight: bold;
 }
 
-canvas {
-  max-height: 100%;
-  max-width: 100%;
-  display: fixed;
-  position: fixed;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  background-color: grey;
+.slider-text {
+  text-align: center;
+}
+
+input[type="delayRange"] {
+  display: block;
+  -webkit-appearance: none;
+  width: 200px;
+  height: 5px;
+  border-radius: 5px;
+  margin: 10 auto;
+  margin-right: 10%;
+  outline: 0;
+}
+
+input[type="delayRange"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #e74c3c;
+  width: 15%;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+}​​
+
+
+input[type="delayRange"]::-webkit-slider-thumb:hover {
+  background-color: #ddd;
+  border: 2px solid #e74c3c;
 }
 
 .value {
@@ -65,7 +235,7 @@ canvas {
   color: #e74c3c;
   font-family: 'Dosis';
   font-size: 30px;
-  margin-top: -30px;
+  margin-top: -22px;
   margin-bottom: 17px;
   letter-spacing: -.07em;
   font-weight: bold;
@@ -96,4 +266,11 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-webkit-slider-thumb:hover {
   background-color: #ddd;
   border: 2px solid #e74c3c;
+}
+
+.counter {
+  position: fixed;
+  color: #333;
+  font-size: 20px;
+  padding-left: 10px;
 }

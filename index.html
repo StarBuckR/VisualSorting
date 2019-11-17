@@ -1,34 +1,75 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Visual Sorting</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Dosis:700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-
 <body>
-  <div class="header">
-    <a class="logo" href="https://starbuckr.github.io/VisualSorting/">Visual Sorting</a>
-    <div class="header-right">
-      <a style="color:#FF4136; font-size: 15px">Pivot Color</a>
-      <a style="color:#0074D9; font-size: 15px">Partition Color</a>
-      <a>
-        <div class="value">32</div>
-        <input type="range" min="32" max="512" step="1" value="32">
-      </a>
-      <a class="clickable" onclick="bubbleSort()">Bubble Sort</a>
-      <a class="clickable" onclick="quickSort()">Quick Sort</a>
-      <a class="clickable" onclick="heapSort()">Heap Sort</a>
-      <a class="clickable" onclick="selectionSort()">Selection Sort</a>
-      <a class="clickable" onclick="gnomeSort()">Gnome Sort</a>
-      <a class="clickable" onclick="insertionSort()">Insertion Sort</a>
-    </div>
-  </div>
-  
+    <header class="header">
+        <a class="logo" href="https://starbuckr.github.io/VisualSorting/">Visual Sorting 
+          <div class="github-buttons">
+            <iframe src="https://ghbtns.com/github-btn.html?user=starbuckr&repo=visualsorting&type=star&count=true&size=large" 
+              frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+          </div>
+        </a>
+    	
+        <input class="menu-btn" type="checkbox" id="menu-btn"/>
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        
+        <ul class="menu">
+          <button class="accordion">Settings</button>
+          <div class="panel">
+          <li>
+              <a class="clickable" onclick="resetEverything()">Reset</a>
+          </li>
+          <li>
+            <a>
+              <div class="delay">50</div>
+              <input type="range" min="0" max="1000" step="10" value="50">
+              <div class="slider-text">Delay</div>
+            </a>
+          </li>
+          <li>
+            <a>
+              <div class="value">32</div>
+              <input type="range" min="32" max="1024" step="1" value="32">
+              <div class="slider-text">Size</div>
+            </a>
+          </li>
+          <li>
+              <a class="clickable" onclick="reverseOrder()">Reverse Order</a>
+          </li>
+          <li>
+              <a class="clickable" onclick="randomOrder()">Random Order</a>
+          </li>
+          <li>
+            <a>
+              <div style="color:#FF4136; font-size: 15px">Selection Color</div>
+              <div style="color:#0074D9; font-size: 15px">Partition Color</div>
+            </a>
+          </li>
+        </div>
+        
+        <button class="accordion">Algorithms</button>
+        <div class="panel">
+          <li><a class="clickable" onclick="quickSort()">Quick Sort</a></li>
+          <li><a class="clickable" onclick="selectionSort()">Selection Sort</a></li>
+          <li><a class="clickable" onclick="bubbleSort()">Bubble Sort</a></li>
+          <!--<li><a class="clickable" onclick="heapSort()">Heap Sort</a></li>-->
+          <li><a class="clickable" onclick="gnomeSort()">Gnome Sort</a></li>
+          <li><a class="clickable" onclick="insertionSort()">Insertion Sort</a></li>
+        </div>
+        </ul>
+      </header>
+
+  <div class="counter">Second Counter : <span id="compCounter">0</span></div>
+  <div class="counter">Comparison Counter: <span id="comparison">0</span></div>
+  <div class="counter">Swap Counter: <span id="arrayComparison">0</span></div>
+
+  <script src="assets/menu.js"></script>
   <script src="assets/p5.min.js"></script>
   <script src="assets/canvas.js"></script>
   <script src="assets/slider.js"></script>

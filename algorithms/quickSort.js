@@ -1,5 +1,11 @@
 async function quickSort(start, end) {
+    comparison = 0;
+    swapCounter = 0;
+    time0 = Date.now();
+    secondBool = true;
+    
     await quickSortRecursive(0, lines.length - 1);
+    secondBool = false;
 }
 
 async function quickSortRecursive(start, end) {
@@ -26,6 +32,7 @@ async function partition(start, end) {
     states[i] = 0;
 
     for (var j = start; j < end; ++j) {
+        comparison++;
         if (lines[j] < x) {
             await swap(lines, j, i);
             states[i] = -1;
