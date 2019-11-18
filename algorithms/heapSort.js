@@ -1,20 +1,50 @@
 async function heapSort() {
+    closeMenus();
     comparison = 0;
     swapCounter = 0;
     time0 = Date.now();
     secondBool = true;
+
+    for (var i = lines.length / 2 - 1; i >= 0; i--) 
+        await heapify(lines, lines.length, i);
     
-    for(let i = 0; i < lines.length - 1; ++i) {
-        for(let j = i + 1; j < lines.length; j++) {
-            comparison++;
-            if(lines[i] > lines[j]){
-                states[i] = 1;
-                states[j] = 0;
-                await swap(lines, j, i);
-                states[i] = -1;
-                states[j] = -1;
-            }
-        }
-    }
+        for (var i = lines.length - 1; i >= 0; i--) { 
+            // Move current root to end
+            states[i] = 0;
+            await swap(lines, 0, i); 
+            states[i] = -1
+      
+            // call max heapify on the reduced heap 
+            await heapify(lines, i, 0); 
+        } 
+
     secondBool = false;
+}
+
+async function heapify(lines, n, i) 
+{ 
+    comparison++;
+    var largest = i; // Initialize largest as root 
+    var l = 2 * i + 1; // left = 2*i + 1 
+    var r = 2 * i + 2; // right = 2*i + 2 
+  
+    // If left child is larger than root 
+    if (l < n && lines[l] > lines[largest]) 
+        largest = l; 
+  
+    // If right child is larger than largest so far 
+    if (r < n && lines[r] > lines[largest]) 
+        largest = r; 
+  
+    // If largest is not root 
+    if (largest != i) { 
+        states[largest] = 1;
+        states[i] = 0;
+        await swap(lines, i, largest);
+        states[largest] = -1
+        states[i] = -1;
+  
+        // Recursively heapify the affected sub-tree 
+        await heapify(lines, n, largest); 
+    } 
 }

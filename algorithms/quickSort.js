@@ -1,4 +1,5 @@
 async function quickSort(start, end) {
+    closeMenus();
     comparison = 0;
     swapCounter = 0;
     time0 = Date.now();

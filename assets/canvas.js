@@ -8,11 +8,12 @@ let comparison = 0;
 let swapCounter = 0;
 let time0;
 
+let headerHeight;
 let counters = document.getElementsByClassName("counter");
 function setup() {
   createCanvas(windowWidth, windowHeight - document.getElementsByClassName("header")[0].clientHeight);
   var oCanvas = document.getElementById("defaultCanvas0");
-  let headerHeight = document.getElementsByClassName("header")[0].clientHeight;
+  headerHeight = document.getElementsByClassName("header")[0].clientHeight;
   oCanvas.style.marginTop = headerHeight + "px";
 
   counters[0].style.setProperty("padding-top", (headerHeight + 5) + "px");
@@ -25,9 +26,17 @@ function setup() {
 function draw() {
   background(150);
 
+  let tempHeight = document.getElementsByClassName("header")[0].clientHeight;
+  if(tempHeight != headerHeight) {
+    counters[0].style.setProperty("padding-top", (headerHeight + 5) + "px");
+    counters[1].style.setProperty("padding-top", (headerHeight + 30) + "px");
+    counters[2].style.setProperty("padding-top", (headerHeight + 55) + "px");
+    headerHeight = tempHeight;
+  }
+  
   if(secondBool) {
     var time1 = Date.now();
-    counters[0].innerHTML = "Second Counter: " + ((time1 - time0) / 1000 + " ms");
+    counters[0].innerHTML = "Second Counter: " + ((time1 - time0) / 1000 + " sec");
     counters[1].innerHTML = "Comparison Counter: " + comparison;
     counters[2].innerHTML = "Swap Counter: " + swapCounter;
   }
@@ -99,7 +108,7 @@ async function reverseOrder() {
 }
 
 function randomOrder() {
-  reCreate(document.querySelector('.value').innerHTML);
+  reCreate(document.getElementById('rs-bullet2').innerHTML);
 }
 
 function resizeCanvas() {
