@@ -38,7 +38,7 @@ a {
   background-color: #333;
 }
 
-.menu li:nth-child(6):hover {
+.menu li:nth-child(6):hover, .menu li:nth-child(2):hover, .menu li:nth-child(3):hover {
   background-color: #101010;
 }
 
@@ -63,12 +63,13 @@ a {
   color: #ddd;
   cursor: pointer;
   padding: 18px;
-  width: 100%;
+  width: 150px;
   text-align: right;
   border: none;
   outline: none;
   transition: 0.4s;
   display: inline-block;
+  clear: both;
   float: right;
 }
 
@@ -97,6 +98,17 @@ a {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
+
+.line {
+
+}
+
+/*
+.protected {
+  margin-top:50px;
+  position: absolute;
+  top:10px;
+}*/
 
 /* menu icon */
 
@@ -185,92 +197,116 @@ a {
     cursor: pointer;
 }
 
-.delay {
-  margin-left: 0px;
-  text-align: center;
-  color: #e74c3c;
-  font-family: 'Dosis';
-  font-size: 30px;
-  margin-top: -22px;
-  margin-bottom: 17px;
-  letter-spacing: -.07em;
-  font-weight: bold;
-}
-
-.slider-text {
-  text-align: center;
-}
-
-input[type="delayRange"] {
-  display: block;
-  -webkit-appearance: none;
-  width: 200px;
-  height: 5px;
-  border-radius: 5px;
-  margin: 10 auto;
-  margin-right: 10%;
-  outline: 0;
-}
-
-input[type="delayRange"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  background-color: #e74c3c;
-  width: 15%;
-  height: 30px;
-  border-radius: 50%;
-  border: 2px solid #ddd;
-  cursor: pointer;
-  transition: .3s ease-in-out;
-}​​
-
-
-input[type="delayRange"]::-webkit-slider-thumb:hover {
-  background-color: #ddd;
-  border: 2px solid #e74c3c;
-}
-
-.value {
-  margin-left: 0px;
-  text-align: center;
-  color: #e74c3c;
-  font-family: 'Dosis';
-  font-size: 30px;
-  margin-top: -22px;
-  margin-bottom: 17px;
-  letter-spacing: -.07em;
-  font-weight: bold;
-}
-
-input[type="range"] {
-  display: block;
-  -webkit-appearance: none;
-  width: 200px;
-  height: 5px;
-  border-radius: 5px;
-  margin: 10 auto;
-  margin-right: 10%;
-  outline: 0;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  background-color: #e74c3c;
-  width: 15%;
-  height: 30px;
-  border-radius: 50%;
-  border: 2px solid #ddd;
-  cursor: pointer;
-  transition: .3s ease-in-out;
-}​​
-
-input[type="range"]::-webkit-slider-thumb:hover {
-  background-color: #ddd;
-  border: 2px solid #e74c3c;
-}
-
 .counter {
   position: fixed;
   color: #333;
   font-size: 20px;
   padding-left: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.box-minmax{
+margin-top: 30px;
+width: 200px;
+display: flex;
+justify-content: space-between;
+font-size: 20px;
+color: #FFFFFF;
+span:first-child{
+  margin-left: 10px;
+}
+}
+.range-slider {
+}
+.rs-range {
+  margin-top: 29px;
+  width: 200px;
+  -webkit-appearance: none;
+}
+.rs-range:focus {
+      outline: none;
+  }
+.rs-range::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 1px;
+      cursor: pointer;
+      box-shadow: none;
+      background: #ffffff;
+      border-radius: 0px;
+      border: 0px solid #010101;
+  }
+.rs-range::-moz-range-track {
+      width: 100%;
+      height: 1px;
+      cursor: pointer;
+      box-shadow: none;
+      background: #ffffff;
+      border-radius: 0px;
+      border: 0px solid #010101;
+  }
+
+ .rs-range::-webkit-slider-thumb {
+      box-shadow: none;
+      border: 0px solid #ffffff;
+      box-shadow: 0px 10px 10px rgba(0,0,0,0.25);
+      height: 42px;
+      width: 22px;
+      border-radius: 22px;
+      background: rgba(255,255,255,1);
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -20px;
+  }
+.rs-range::-moz-range-thumb{
+      box-shadow: none;
+      border: 0px solid #ffffff;
+      box-shadow: 0px 10px 10px rgba(0,0,0,0.25);
+      height: 42px;
+      width: 22px;
+      border-radius: 22px;
+      background: rgba(255,255,255,1);
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -20px;
+}
+.rs-range::-moz-focus-outer {
+  border: 0;
+  }
+
+.rs-label {
+  
+  position: relative;
+  transform-origin: center center;
+  display: block;
+  width: 98px;
+  height: 98px;
+  background: transparent;
+  border-radius: 50%;
+  line-height: 30px;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 22px;
+  box-sizing: border-box;
+  border: 2px solid #fff;
+  margin-top: 20px;
+  margin-left: -38px;
+  left: attr(value);
+  color: #fff;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 36px;
+  &::after {
+      content: "kg";
+      display: block;
+      font-size: 20px;
+      letter-spacing: 0.07em;
+      margin-top: -2px;
+  }
+  
 }

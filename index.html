@@ -20,6 +20,8 @@
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
         
         <ul class="menu">
+          <div class="line">
+
           <button class="accordion">Settings</button>
           <div class="panel">
           <li>
@@ -27,16 +29,42 @@
           </li>
           <li>
             <a>
-              <div class="delay">50</div>
-              <input type="range" min="0" max="1000" step="10" value="50">
-              <div class="slider-text">Delay</div>
+                <div class="container">
+  
+                    <div class="range-slider">
+                      <span id="rs-bullet" class="rs-label">0</span>
+                      <input id="rs-range-line" class="rs-range" type="range" value="50" min="0" max="1000">
+                      
+                    </div>
+                    
+                    <div class="box-minmax">
+                      <span>0</span>
+                        <span>Delay</span>
+                      <span>1000</span>
+                    </div>
+                    
+                  </div>
+                  
             </a>
           </li>
           <li>
             <a>
-              <div class="value">32</div>
-              <input type="range" min="32" max="1024" step="1" value="32">
-              <div class="slider-text">Size</div>
+                <div class="container">
+  
+                    <div class="range-slider">
+                      <span id="rs-bullet2" class="rs-label">0</span>
+                      <input id="rs-range-line2" class="rs-range" type="range" value="32" min="32" max="1024">
+                      
+                    </div>
+                    
+                    <div class="box-minmax">
+                      <span>32</span>
+                        <span>Size</span>
+                      <span>1024</span>
+                    </div>
+                    
+                  </div>
+                  
             </a>
           </li>
           <li>
@@ -51,17 +79,20 @@
               <div style="color:#0074D9; font-size: 15px">Partition Color</div>
             </a>
           </li>
-        </div>
+          </div>
+          </div>
         
-        <button class="accordion">Algorithms</button>
-        <div class="panel">
-          <li><a class="clickable" onclick="quickSort()">Quick Sort</a></li>
-          <li><a class="clickable" onclick="selectionSort()">Selection Sort</a></li>
-          <li><a class="clickable" onclick="bubbleSort()">Bubble Sort</a></li>
-          <!--<li><a class="clickable" onclick="heapSort()">Heap Sort</a></li>-->
-          <li><a class="clickable" onclick="gnomeSort()">Gnome Sort</a></li>
-          <li><a class="clickable" onclick="insertionSort()">Insertion Sort</a></li>
-        </div>
+          <div class="line">
+          <button class="accordion">Algorithms</button>
+          <div class="panel">
+            <li><a class="clickable" onclick="quickSort()">Quick Sort</a></li>
+            <li><a class="clickable" onclick="selectionSort()">Selection Sort</a></li>
+            <li><a class="clickable" onclick="bubbleSort()">Bubble Sort</a></li>
+            <!--<li><a class="clickable" onclick="heapSort()">Heap Sort</a></li>-->
+            <li><a class="clickable" onclick="gnomeSort()">Gnome Sort</a></li>
+            <li><a class="clickable" onclick="insertionSort()">Insertion Sort</a></li>
+          </div>
+          </div>
         </ul>
       </header>
 
