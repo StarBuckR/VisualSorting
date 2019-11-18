@@ -1,9 +1,5 @@
 async function bubbleSort() {
-    closeMenus();
-    comparison = 0;
-    swapCounter = 0;
-    time0 = Date.now();
-    secondBool = true;
+    await algorithmStarter();
     
     for (let i = 0; i < lines.length - 1; ++i) {
         for (let j = 0; j < lines.length - i - 1; ++j) {

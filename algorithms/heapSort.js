@@ -1,9 +1,5 @@
 async function heapSort() {
-    closeMenus();
-    comparison = 0;
-    swapCounter = 0;
-    time0 = Date.now();
-    secondBool = true;
+    await algorithmStarter();
 
     for (var i = lines.length / 2 - 1; i >= 0; i--) 
         await heapify(lines, lines.length, i);

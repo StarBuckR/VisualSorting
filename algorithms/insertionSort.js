@@ -1,9 +1,5 @@
 async function insertionSort() {
-    closeMenus();
-    comparison = 0;
-    swapCounter = 0;
-    time0 = Date.now();
-    secondBool = true;
+    await algorithmStarter();
     
     let i, pivot, j;
     for(i = 1; i < lines.length; ++i) {

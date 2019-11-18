@@ -1,10 +1,5 @@
 async function selectionSort() {
-    closeMenus();
-    comparison = 0;
-    swapCounter = 0;
-    time0 = Date.now();
-    secondBool = true;
-    
+    await algorithmStarter();
     let minIndex;
     for(let i = 0; i < lines.length - 1; ++i){
         minIndex = i;

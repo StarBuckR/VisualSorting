@@ -1,9 +1,5 @@
 async function gnomeSort() {
-    closeMenus();
-    comparison = 0;
-    swapCounter = 0;
-    time0 = Date.now();
-    secondBool = true;
+    await algorithmStarter();
     
     let i = 1;
     while(i < lines.length) {

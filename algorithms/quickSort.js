@@ -1,9 +1,5 @@
 async function quickSort(start, end) {
-    closeMenus();
-    comparison = 0;
-    swapCounter = 0;
-    time0 = Date.now();
-    secondBool = true;
+    await algorithmStarter();
     
     await quickSortRecursive(0, lines.length - 1);
     secondBool = false;

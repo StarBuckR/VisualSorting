@@ -72,6 +72,14 @@ function reCreate(lineSize) {
   }
 }
 
+async function algorithmStarter() {
+  closeMenus();
+  comparison = 0;
+  swapCounter = 0;
+  time0 = Date.now();
+  secondBool = true;
+}
+
 async function swap(arr, a, b) {
   swapCounter++;
   await sleep(delay);
