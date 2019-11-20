@@ -104,7 +104,7 @@ a {
   -webkit-transition: max-height .2s ease-out;
   -o-transition: max-height .2s ease-out;
   transition: max-height .2s ease-out;
-  max-width: 1024px;
+  max-width: 1124px;
 }
 
 .accordion {
@@ -257,6 +257,7 @@ a {
 
 .container {
   margin-top: -15px;
+  padding-left: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

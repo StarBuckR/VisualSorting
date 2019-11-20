@@ -1,4 +1,5 @@
 async function shellSort() {
+    await checkIfAbort();
     await algorithmStarter();
 
     for(let gap = lines.length / 2; gap > 0; gap /= 2) {
@@ -8,6 +9,10 @@ async function shellSort() {
             let j;
 
             for(j = i; j >= gap && lines[j - gap] > temp; j -= gap){
+                if(abort){
+                    throw Error("Clicked another algorithm");
+                }
+
                 states[j] = 0;
                 await swap(lines, j, j - gap)
                 states[j] = -1;

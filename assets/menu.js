@@ -39,4 +39,7 @@ function closeMenus() {
             buttons[i].classList.toggle("active");
         }
     }
+    
+    document.getElementsByClassName("panel")[1].style.setProperty("padding-top", "45px");
+    sizeBool = true;
 }

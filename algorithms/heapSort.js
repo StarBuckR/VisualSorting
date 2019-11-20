@@ -1,10 +1,14 @@
 async function heapSort() {
+    await checkIfAbort();
     await algorithmStarter();
 
     for (var i = lines.length / 2 - 1; i >= 0; i--) 
         await heapify(lines, lines.length, i);
     
         for (var i = lines.length - 1; i >= 0; i--) { 
+            if(abort){
+                throw Error("Clicked another algorithm");
+            }
             // Move current root to end
             states[i] = 0;
             await swap(lines, 0, i); 
@@ -19,6 +23,9 @@ async function heapSort() {
 
 async function heapify(lines, n, i) 
 { 
+    if(abort){
+        throw Error("Clicked another algorithm");
+    }
     comparison++;
     var largest = i; // Initialize largest as root 
     var l = 2 * i + 1; // left = 2*i + 1 

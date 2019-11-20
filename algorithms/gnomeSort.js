@@ -1,8 +1,13 @@
 async function gnomeSort() {
+    await checkIfAbort();
     await algorithmStarter();
     
     let i = 1;
     while(i < lines.length) {
+        if(abort){
+            throw Error("Clicked another algorithm");
+        }
+
         comparison++;
         if(lines[i] >= lines[i - 1])
             i++;

@@ -1,4 +1,5 @@
 async function quickSort(start, end) {
+    await checkIfAbort();
     await algorithmStarter();
     
     await quickSortRecursive(0, lines.length - 1);
@@ -6,6 +7,10 @@ async function quickSort(start, end) {
 }
 
 async function quickSortRecursive(start, end) {
+    if(abort){
+        throw Error("Clicked another algorithm");
+    }
+
     let q;// index
 
     if (start >= end)

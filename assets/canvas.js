@@ -8,6 +8,8 @@ let comparison = 0;
 let swapCounter = 0;
 let time0;
 
+let abort = false;
+
 let headerHeight;
 let counters = document.getElementsByClassName("counter");
 function setup() {
@@ -27,12 +29,9 @@ function draw() {
   background(150);
 
   let tempHeight = document.getElementsByClassName("header")[0].clientHeight;
-  if(tempHeight != headerHeight) {
-    counters[0].style.setProperty("padding-top", (headerHeight + 5) + "px");
-    counters[1].style.setProperty("padding-top", (headerHeight + 30) + "px");
-    counters[2].style.setProperty("padding-top", (headerHeight + 55) + "px");
-    headerHeight = tempHeight;
-  }
+  counters[0].style.setProperty("padding-top", (tempHeight + 5) + "px");
+  counters[1].style.setProperty("padding-top", (tempHeight + 30) + "px");
+  counters[2].style.setProperty("padding-top", (tempHeight + 55) + "px");
   
   if(secondBool) {
     var time1 = Date.now();
@@ -80,6 +79,19 @@ async function algorithmStarter() {
   secondBool = true;
 }
 
+async function stopAlg() {
+  await checkIfAbort();
+}
+
+async function checkIfAbort() {
+  if(secondBool) {
+    abort = true;
+    secondBool = false;
+    await sleep(1500);
+    abort = false;
+  }
+}
+
 async function swap(arr, a, b) {
   swapCounter++;
   await sleep(delay);
@@ -97,6 +109,7 @@ function resetEverything() {
 }
 
 async function reverseOrder() {
+  checkIfAbort();
   let minIndex;
     for(let i = 0; i < lines.length - 1; ++i){
         minIndex = i;
@@ -116,6 +129,7 @@ async function reverseOrder() {
 }
 
 function randomOrder() {
+  checkIfAbort();
   reCreate(document.getElementById('rs-bullet2').innerHTML);
 }
 
